@@ -1,1 +1,4 @@
-<?php echo "Hello World" ?>
+<?php 
+
+include('includes/database.php');
+echo "Hello World" ?>
