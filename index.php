@@ -8,6 +8,11 @@ include('includes/config.php');
 include('includes/database.php');
 include('includes/functions.php');
 
+if(isset($_SESSION['id'])){
+    header('Location: dashboard.php');
+    die();
+}
+
 include('includes/header.php');
 
 //Request Login
@@ -24,7 +29,8 @@ if (isset($_POST['email'])) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['username'] = $user['username'];
-
+            
+            set_message("You have succesfully logged in " . $_SESSION['username']);
             header('Location: dashboard.php');
             die();
         }

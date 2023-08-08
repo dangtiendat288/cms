@@ -50,3 +50,5 @@
     </div>
   </div>
 </nav>
+
+<?php get_message(); ?>
