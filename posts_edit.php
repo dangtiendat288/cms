@@ -16,12 +16,11 @@ if (isset($_POST['title'])) {
     if ($stm = $connect->prepare('UPDATE posts set title = ?, content = ? , date = ?  WHERE id = ?')) {
         $stm->bind_param('sssi', $_POST['title'], $_POST['content'], $_POST['date'], $_GET['id']);
         $stm->execute();
-
         $stm->close();        
 
         set_message("A post  " . $_GET['id'] . " has beed updated");
         header('Location: posts.php');
-
+        die();
     } else {
         echo 'Could not prepare post update statement statement!';
     }

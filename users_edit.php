@@ -34,7 +34,7 @@ if (isset($_POST['username'])) {
 
         set_message("A user  " . $_GET['id'] . " has beed updated");
         header('Location: users.php');
-
+        die();
     } else {
         echo 'Could not prepare user update statement statement!';
     }

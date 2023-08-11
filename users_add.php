@@ -17,11 +17,12 @@ if(isset($_POST['username'])){
         $hashed = SHA1($_POST['password']);
         $stm->bind_param('ssss', $_POST['username'], $_POST['email'], $hashed, $_POST['active']);
         $stm->execute();
-
+        $stm->close();
+        
         set_message("A new user " . $_POST['username'] . " has beed added");
         header('Location: users.php');
-        $stm->close();
-
+        die();
+        
     } else {
         echo 'Could not prepare statement!';
     }

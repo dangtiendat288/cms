@@ -19,7 +19,7 @@ if(isset($_GET['delete'])) {
         set_message("A user " . $_GET['delete'] . " has beed deleted");
         header('Location: users.php');
         $stm->close();
-
+        die();
     } else {
         echo 'Could not prepare statement!';
     }

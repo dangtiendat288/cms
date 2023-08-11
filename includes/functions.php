@@ -14,8 +14,8 @@ function set_message($message){
 
 function get_message(){
     if(isset($_SESSION['message'])){
-        // echo "<script type='text/javascript'> showToast('" . $_SESSION['message'] . "','top right' , 'success') </script>";
-        echo '<p>' . $_SESSION['message'] . '</p> <hr>';
+        echo "<script type='text/javascript'> showToast('" . $_SESSION['message'] . "','top right' , 'success') </script>";
+        // echo '<p>' . $_SESSION['message'] . '</p> <hr>';
         unset($_SESSION['message']);
     }
 }

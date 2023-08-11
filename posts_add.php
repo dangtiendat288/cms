@@ -17,11 +17,12 @@ if(isset($_POST['title'])){
         
         $stm->bind_param('ssis', $_POST['title'], $_POST['content'], $_SESSION['id'], $_POST['date']);
         $stm->execute();
+        $stm->close();
 
         set_message("A new post " . $_POST['title'] . " has beed added");
         header('Location: posts.php');
-        $stm->close();
-
+        die();
+        
     } else {
         echo 'Could not prepare statement!';
     }

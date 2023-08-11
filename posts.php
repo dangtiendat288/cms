@@ -15,11 +15,11 @@ if(isset($_GET['delete'])) {
     if ($stm = $connect->prepare('DELETE FROM posts WHERE id = ?')){        
         $stm->bind_param('i', $_GET['delete']);
         $stm->execute();
+        $stm->close();
 
         set_message("A post " . $_GET['delete'] . " has beed deleted");
         header('Location: posts.php');
-        $stm->close();
-
+        die();
     } else {
         echo 'Could not prepare statement!';
     }
